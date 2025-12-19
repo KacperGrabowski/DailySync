@@ -1,0 +1,6 @@
+@DailySync_HostAddress = http://localhost:5284
+
+GET {{DailySync_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
