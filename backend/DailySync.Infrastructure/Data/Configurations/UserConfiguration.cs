@@ -12,6 +12,9 @@ namespace DailySync.Infrastructure.Data.Configurations
 
             builder.HasKey(u => u.Id);
 
+            builder.Property(u => u.Id)
+                .HasDefaultValueSql("NEWID()");
+
             builder.Property(u => u.Username)
                 .IsRequired()
                 .HasMaxLength(50);
@@ -40,7 +43,7 @@ namespace DailySync.Infrastructure.Data.Configurations
 
             builder.Property(u => u.CreatedAt)
                 .IsRequired()
-                .HasDefaultValue(DateTimeOffset.UtcNow);
+                .HasDefaultValueSql("SYSDATETIMEOFFSET()");
 
             builder.Property(u => u.UpdatedAt)
                 .IsRequired(false);
